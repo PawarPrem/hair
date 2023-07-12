@@ -53,19 +53,19 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['daily'],
             'ignore_exceptions' => false,
         ],
 
         'single' => [
             'driver' => 'single',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => env('LOG_FILE_SINGLE_LOCATION', '/opt/hairsalon/logs/'),
             'level' => env('LOG_LEVEL', 'debug'),
         ],
 
         'daily' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => env('LOG_FILE_DAILY_LOCATION', '/opt/hairsalon/logs/'),
             'level' => env('LOG_LEVEL', 'debug'),
             'days' => 14,
         ],
